@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ * See the NOTICE file distributed with this work for additional
+ * information regarding copyright ownership.
+ *
+ * This is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU Lesser General Public License as
+ * published by the Free Software Foundation; either version 2.1 of
+ * the License, or (at your option) any later version.
+ *
+ * This software is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this software; if not, write to the Free
+ * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+ * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
+-->
+
+<xwikidoc version="1.3" reference="AppWithinMinutes.Fields.ExternalImage" locale="">
+  <web>AppWithinMinutes.Fields</web>
+  <name>ExternalImage</name>
+  <language/>
+  <defaultLanguage/>
+  <translation>0</translation>
+  <creator>xwiki:XWiki.Admin</creator>
+  <creationDate>1511790490000</creationDate>
+  <parent>AppWithinMinutes.Fields.WebHome</parent>
+  <author>xwiki:XWiki.Admin</author>
+  <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
+  <date>1511791225000</date>
+  <contentUpdateDate>1511791225000</contentUpdateDate>
+  <version>1.1</version>
+  <title>External Image</title>
+  <comment/>
+  <minorEdit>false</minorEdit>
+  <syntaxId>xwiki/2.1</syntaxId>
+  <hidden>true</hidden>
+  <content>{{velocity}}
+{{html clean="false"}}
+#if ($type == 'edit' || $type == 'search')
+  #set ($id = $escapetool.xml("${prefix}${name}"))
+  &lt;input type="text" id="$!id" name="$!id" value="$!escapetool.xml($value)" /&gt;
+#elseif ($type == 'view' || $type == 'rendered')
+  &lt;img src="$escapetool.xml($value)" alt="$escapetool.xml($field.getProperty('placeholder').value)"
+    class="$escapetool.xml($field.getProperty('styleName').value)" /&gt;
+#elseif ($type == 'hidden')
+  #set ($id = $escapetool.xml("${prefix}${name}"))
+  &lt;input type="hidden" id="$!id" name="$!id" value="$!escapetool.xml($value)" /&gt;
+#else
+  ## In order for the custom displayer to be taken into account, the result of its evaluation with an unknown display
+  ## mode must not be empty. Let's output something.
+  Unknown display mode.
+#end
+{{/html}}
+{{/velocity}}</content>
+  <class>
+    <name>AppWithinMinutes.Fields.ExternalImage</name>
+    <customClass/>
+    <customMapping/>
+    <defaultViewSheet/>
+    <defaultEditSheet/>
+    <defaultWeb/>
+    <nameField/>
+    <validationScript/>
+    <externalImage>
+      <customDisplay>{{include reference="AppWithinMinutes.Fields.ExternalImage" /}}</customDisplay>
+      <disabled>0</disabled>
+      <name>externalImage</name>
+      <number>1</number>
+      <placeholder/>
+      <prettyName>External Image</prettyName>
+      <styleName/>
+      <unmodifiable>0</unmodifiable>
+      <validationMessage/>
+      <validationRegExp/>
+      <classType>org.xwiki.contrib.appwithinminutes.internal.ExternalImageClass</classType>
+    </externalImage>
+  </class>
+  <object>
+    <name>AppWithinMinutes.Fields.ExternalImage</name>
+    <number>0</number>
+    <className>AppWithinMinutes.FormFieldClass</className>
+    <guid>70c64b73-0b0b-4b06-9685-1ac5f76ec68b</guid>
+    <class>
+      <name>AppWithinMinutes.FormFieldClass</name>
+      <customClass/>
+      <customMapping/>
+      <defaultViewSheet/>
+      <defaultEditSheet/>
+      <defaultWeb/>
+      <nameField/>
+      <validationScript/>
+      <category>
+        <cache>0</cache>
+        <classname>AppWithinMinutes.FormFieldCategoryClass</classname>
+        <customDisplay/>
+        <disabled>0</disabled>
+        <displayType>select</displayType>
+        <idField/>
+        <multiSelect>0</multiSelect>
+        <name>category</name>
+        <number>2</number>
+        <picker>0</picker>
+        <prettyName>Category</prettyName>
+        <relationalStorage>0</relationalStorage>
+        <separator> </separator>
+        <separators/>
+        <size>1</size>
+        <sort>none</sort>
+        <sql/>
+        <unmodifiable>0</unmodifiable>
+        <validationMessage/>
+        <validationRegExp/>
+        <valueField/>
+        <classType>com.xpn.xwiki.objects.classes.DBListClass</classType>
+      </category>
+      <icon>
+        <customDisplay/>
+        <disabled>0</disabled>
+        <name>icon</name>
+        <number>2</number>
+        <picker>0</picker>
+        <prettyName>Icon</prettyName>
+        <size>30</size>
+        <unmodifiable>0</unmodifiable>
+        <validationMessage/>
+        <validationRegExp/>
+        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+      </icon>
+      <priority>
+        <customDisplay/>
+        <disabled>0</disabled>
+        <name>priority</name>
+        <number>3</number>
+        <numberType>long</numberType>
+        <prettyName>Priority</prettyName>
+        <size>30</size>
+        <unmodifiable>0</unmodifiable>
+        <validationMessage/>
+        <validationRegExp/>
+        <classType>com.xpn.xwiki.objects.classes.NumberClass</classType>
+      </priority>
+      <properties>
+        <customDisplay/>
+        <disabled>0</disabled>
+        <name>properties</name>
+        <number>5</number>
+        <picker>0</picker>
+        <prettyName>Properties</prettyName>
+        <size>30</size>
+        <unmodifiable>0</unmodifiable>
+        <validationMessage/>
+        <validationRegExp/>
+        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+      </properties>
+    </class>
+    <property>
+      <category>AppWithinMinutes.Pickers</category>
+    </property>
+    <property>
+      <icon>icons/silk/image.png</icon>
+    </property>
+    <property>
+      <priority>3</priority>
+    </property>
+    <property>
+      <properties>styleName placeholder</properties>
+    </property>
+  </object>
+</xwikidoc>
